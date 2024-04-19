@@ -41,6 +41,7 @@ df['Region'] = df['City'].apply(lambda x: region_data.get(x, 'Unknown'))
 df['City_Region'] = df.apply(lambda row: f"{row['City']} ({row['Region']})", axis=1)
 
 app = dash.Dash(__name__, suppress_callback_exceptions=True)
+server = app.server
 
 # Assuming first two columns are 'City' and 'Region'
 months = df.columns[1:-2]
